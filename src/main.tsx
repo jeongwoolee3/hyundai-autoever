@@ -1,20 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 
-import { worker } from './mocks/browser'
+import { worker } from "./mocks/browser";
 
 async function bootstrap() {
   if (import.meta.env.DEV) {
-    await worker.start()
+    await worker.start();
   }
-  
-  createRoot(document.getElementById('root')!).render(
+
+  createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <App />
-    </StrictMode>,
-  )
+    </StrictMode>
+  );
 }
 
 bootstrap();
