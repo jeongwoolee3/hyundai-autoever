@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@import "./font.css";
+@import "./responsive.css";
+@import "./variables.css";

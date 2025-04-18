@@ -1,0 +1,22 @@
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/font/KiaSignatureFixOTFLight.woff2) format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/font/KiaSignatureFixOTFRegular.woff2) format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/font/KiaSignatureFixOTFBold.woff2) format("woff2");
+  font-weight: 600;
+}
+
+body {
+  font-family: "Kia Signature Fix", Arial, sans-serif;
+}
