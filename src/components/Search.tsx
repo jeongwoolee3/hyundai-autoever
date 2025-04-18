@@ -1,10 +1,19 @@
 import React from "react";
-import { useState } from "react";
 
-const Search = () => {
-  const [keyword, setKeyword] = useState("");
+interface SearchProps {
+  value: string;
+  onChange: (val: string) => void;
+  onSearch: (val: string) => void;
+}
+
+const Search = ({ value, onChange, onSearch }: SearchProps) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSearch(value.trim()); // 검색어 부모로 전달
+  };
+
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={handleSubmit}>
       <div
         className="flex justify-center"
         style={{
@@ -21,8 +30,8 @@ const Search = () => {
         >
           <input
             type="text"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
             placeholder="찾으시는 내용을 입력해 주세요"
             className="flex-1 bg-transparent outline-none text-[#05141F] placeholder-[#9BA1A5] w-full border"
             style={{
@@ -35,11 +44,10 @@ const Search = () => {
             }}
           />
 
-          {/* Clear button (❌) */}
-          {keyword && (
+          {value && (
             <button
               type="button"
-              onClick={() => setKeyword("")}
+              onClick={() => onSearch("")}
               className="absolute right-[48px] top-1/2 -translate-y-1/2 text-[#9BA1A5]"
               aria-label="검색어 지우기"
             >
@@ -47,7 +55,6 @@ const Search = () => {
             </button>
           )}
 
-          {/* Search button (돋보기) */}
           <button
             type="submit"
             aria-label="검색하기"
