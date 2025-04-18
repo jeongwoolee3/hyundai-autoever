@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { TAB_MAP } from "../../constants/tab";
 import { Tab } from "../../mocks/types";
 
@@ -16,9 +17,10 @@ const Tabs = ({ tabs, selectedTab, onChange }: TabProps) => {
           <button
             key={tab}
             onClick={() => onChange(tab)}
-            className={`flex-1 text-center font-medium transition-all ${
+            className={clsx(
+              "flex-1 text-center font-medium transition-all cursor-pointer",
               isSelected ? "text-white font-semibold" : "text-[#05141F]"
-            }`}
+            )}
             style={{
               backgroundColor: isSelected ? "var(--midnight-900)" : "#fff",
               borderColor: isSelected

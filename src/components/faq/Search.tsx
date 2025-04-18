@@ -48,7 +48,7 @@ const Search = ({ value, onChange, onSearch }: SearchProps) => {
             <button
               type="button"
               onClick={() => onSearch("")}
-              className="absolute right-[48px] top-1/2 -translate-y-1/2 text-[#9BA1A5]"
+              className="absolute right-[48px] top-1/2 -translate-y-1/2 text-[#9BA1A5] cursor-pointer"
               aria-label="검색어 지우기"
             >
               ✕
@@ -58,7 +58,7 @@ const Search = ({ value, onChange, onSearch }: SearchProps) => {
           <button
             type="submit"
             aria-label="검색하기"
-            className="absolute right-[12px] top-1/2 -translate-y-1/2"
+            className="absolute right-[12px] top-1/2 -translate-y-1/2 cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
