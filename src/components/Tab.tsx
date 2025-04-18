@@ -7,7 +7,7 @@ const tabs = ["서비스 도입", "서비스 이용"];
 
 const Tab = ({ activeTab, onChange }: TabProps) => {
   return (
-    <div className="flex w-full border border-[var(--midnight-100)]">
+    <div className="flex w-full border border-[var(--midnight-100)] mb-[var(--px-lg)]">
       {tabs.map((tab) => {
         const isActive = activeTab === tab;
         return (
