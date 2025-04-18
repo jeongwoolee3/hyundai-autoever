@@ -1,50 +1,41 @@
-import { useState } from "react";
+import { CategoryItem } from "../mocks/types";
 
 interface CategoryFilterProps {
-  categories: string[];
-  defaultValue?: string;
-  onChange?: (value: string) => void;
+  categories: CategoryItem[];
+  selected: string;
+  onChange: (value: string) => void;
 }
 
 const CategoryFilter = ({
   categories,
-  defaultValue = categories[0],
+  selected,
   onChange,
 }: CategoryFilterProps) => {
-  const [selected, setSelected] = useState(defaultValue);
-
-  const handleChange = (value: string) => {
-    setSelected(value);
-    if (onChange) onChange(value);
-  };
-
-  console.log(categories);
   return (
     <div
       className="flex flex-wrap"
       style={{ marginBottom: "var(--px-md)", marginRight: "-2px" }}
     >
-      {categories.map((item, i) => {
-        const isActive = selected === item;
+      {categories.map((item) => {
+        const isActive = selected === item.categoryID;
         return (
           <label
-            key={item + i}
+            key={item.categoryID}
             className="cursor-pointer flex items-center relative mr-[2px]"
             style={{
-              WebkitTapHighlightColor: "transparent",
               overflow: "hidden",
             }}
           >
             <input
               type="radio"
               name="faq-filter"
-              value={item}
+              value={item.categoryID}
               checked={isActive}
-              onChange={() => handleChange(item)}
+              onChange={() => onChange(item.categoryID)}
               className="absolute left-[-100%]"
             />
             <span
-              key={item}
+              key={item.categoryID}
               className={`
                 transition-all
                 flex items-center justify-center font-semibold tracking-[-0.4px]
@@ -57,7 +48,7 @@ const CategoryFilter = ({
                 }
               `}
             >
-              {item}
+              {item.name}
             </span>
           </label>
         );
