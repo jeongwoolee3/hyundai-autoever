@@ -29,56 +29,49 @@ const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
   }, []);
 
   return (
-    <div className="relative">
-      <header
-        className={clsx(
-          "sticky top-0 left-0 w-full h-[56px] md:h-[80px] px-[24px] sm:px-[48px] flex justify-between items-center bg-white transition-shadow duration-300",
-          {
-            "shadow-[0_4px_32px_rgba(0,0,0,0.08)]": isPinned,
-          }
-        )}
-      >
-        <img
-          className="w-[110px] md:w-[140px] cursor-pointer"
-          src="/logo.svg"
-          alt="Kia Biz"
-        />
-        {isNavOpen ? (
-          <button
-            className="w-[20px] cursor-pointer md:hidden"
-            onClick={() => {
-              setIsNavOpen(!isNavOpen);
-            }}
-          >
-            <CloseIcon />
-          </button>
-        ) : (
-          <button
-            className="flex flex-col space-y-[4px] w-[20px] cursor-pointer md:hidden"
-            onClick={() => {
-              setIsNavOpen(!isNavOpen);
-            }}
-          >
-            <div className="bg-black h-[2px]" />
-            <div className="bg-black h-[2px]" />
-            <div className="bg-black h-[2px]" />
-          </button>
-        )}
+    <header
+      className={clsx(
+        "sticky top-0 left-0 z-50 w-full h-[56px] md:h-[80px] px-[24px] sm:px-[48px] flex justify-between items-center bg-white transition-shadow duration-300",
+        {
+          "shadow-[0_4px_32px_rgba(0,0,0,0.08)]": isPinned,
+        }
+      )}
+    >
+      <img
+        className="w-[110px] md:w-[140px] cursor-pointer"
+        src="/logo.svg"
+        alt="Kia Biz"
+      />
+      {isNavOpen ? (
+        <button
+          className="w-[20px] cursor-pointer md:hidden"
+          onClick={() => {
+            setIsNavOpen(!isNavOpen);
+          }}
+        >
+          <CloseIcon />
+        </button>
+      ) : (
+        <button
+          className="flex flex-col space-y-[4px] w-[20px] cursor-pointer md:hidden"
+          onClick={() => {
+            setIsNavOpen(!isNavOpen);
+          }}
+        >
+          <div className="bg-black h-[2px]" />
+          <div className="bg-black h-[2px]" />
+          <div className="bg-black h-[2px]" />
+        </button>
+      )}
 
-        <div className="hidden md:block space-x-[40px]">
-          {["서비스 소개", "자주 묻는 질문", "새소식", "상담문의"].map(
-            (menu) => (
-              <button
-                key={menu}
-                className="cursor-pointer text-[18px] font-bold"
-              >
-                {menu}
-              </button>
-            )
-          )}
-        </div>
-      </header>
-    </div>
+      <div className="hidden md:block space-x-[40px]">
+        {["서비스 소개", "자주 묻는 질문", "새소식", "상담문의"].map((menu) => (
+          <button key={menu} className="cursor-pointer text-[18px] font-bold">
+            {menu}
+          </button>
+        ))}
+      </div>
+    </header>
   );
 };
 export default Header;
