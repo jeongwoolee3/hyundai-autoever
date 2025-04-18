@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-*: initial; /* 기본 sm, md, lg, xl, 2xl 제거 */
+
+  --breakpoint-sm: 46.5rem; /* 744px */
+  --breakpoint-md: 64rem; /* 1024px */
+  --breakpoint-lg: 90rem; /* 1440px */
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/font/KiaSignatureFixOTFLight.woff2) format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/font/KiaSignatureFixOTFRegular.woff2) format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/font/KiaSignatureFixOTFBold.woff2) format("woff2");
+  font-weight: 600;
+}
+
+body {
+  font-family: "Kia Signature Fix", Arial, sans-serif;
+}
+
 :root {
   --max-width: 1660px;
   --line-height-sm: 1.4;
@@ -264,5 +295,42 @@
     --faq-list-a-padding-h: 24px;
     --faq-list-a-size: 20px;
     --faq-list-q-padding: 32px 40px;
+  }
+}
+
+@media (max-width: 743px) {
+  footer {
+    --font-md: 12px;
+    --font-lg: 14px;
+    --line-height: 22px;
+  }
+}
+@media (min-width: 744px) {
+  footer {
+    --font-md: 14px;
+    --font-lg: 16px;
+    --line-height: 24px;
+  }
+}
+
+@media (max-width: 743px) {
+  footer address br:nth-of-type(5) {
+    display: none;
+  }
+}
+@media (min-width: 744px) and (max-width: 1023px) {
+  footer address br:nth-of-type(1),
+  footer address br:nth-of-type(3),
+  footer address br:nth-of-type(5) {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  footer address br:nth-of-type(1),
+  footer address br:nth-of-type(2),
+  footer address br:nth-of-type(3),
+  footer address br:nth-of-type(4),
+  footer address br:nth-of-type(5) {
+    display: none;
   }
 }
