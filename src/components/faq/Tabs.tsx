@@ -1,25 +1,27 @@
+import { TAB_MAP } from "../../constants/tab";
+import { Tab } from "../../mocks/types";
+
 interface TabProps {
-  activeTab: string;
-  onChange: (tab: string) => void;
+  tabs: Tab[];
+  selectedTab: string;
+  onChange: (tab: Tab) => void;
 }
 
-const tabs = ["서비스 도입", "서비스 이용"];
-
-const Tab = ({ activeTab, onChange }: TabProps) => {
+const Tabs = ({ tabs, selectedTab, onChange }: TabProps) => {
   return (
     <div className="flex w-full border border-[var(--midnight-100)] mb-[var(--px-lg)]">
       {tabs.map((tab) => {
-        const isActive = activeTab === tab;
+        const isSelected = selectedTab === tab;
         return (
           <button
             key={tab}
             onClick={() => onChange(tab)}
             className={`flex-1 text-center font-medium transition-all ${
-              isActive ? "text-white font-semibold" : "text-[#05141F]"
+              isSelected ? "text-white font-semibold" : "text-[#05141F]"
             }`}
             style={{
-              backgroundColor: isActive ? "var(--midnight-900)" : "#fff",
-              borderColor: isActive
+              backgroundColor: isSelected ? "var(--midnight-900)" : "#fff",
+              borderColor: isSelected
                 ? "var(--midnight-900)"
                 : "var(--midnight-100)",
               borderWidth: "1px",
@@ -27,11 +29,11 @@ const Tab = ({ activeTab, onChange }: TabProps) => {
               minHeight: "var(--btn-xlg2)",
             }}
           >
-            {tab}
+            {TAB_MAP[tab]}
           </button>
         );
       })}
     </div>
   );
 };
-export default Tab;
+export default Tabs;

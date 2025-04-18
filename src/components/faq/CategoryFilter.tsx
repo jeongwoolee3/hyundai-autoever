@@ -1,26 +1,33 @@
-import { CategoryItem } from "../mocks/types";
+import useCategoryData from "../../hooks/useCategoryData";
+import { Tab } from "../../mocks/types";
 
 interface CategoryFilterProps {
-  categories: CategoryItem[];
-  selected: string;
+  selectedTab: Tab;
+  selectedCategory: string;
   onChange: (value: string) => void;
 }
 
 const CategoryFilter = ({
-  categories,
-  selected,
+  selectedTab,
+  selectedCategory: selected,
   onChange,
 }: CategoryFilterProps) => {
+  const { data: categories } = useCategoryData(selectedTab);
+
+  if (!categories) {
+    return null;
+  }
+
   return (
     <div
       className="flex flex-wrap"
       style={{ marginBottom: "var(--px-md)", marginRight: "-2px" }}
     >
-      {categories.map((item) => {
-        const isActive = selected === item.categoryID;
+      {categories.map((category) => {
+        const isActive = selected === category.categoryID;
         return (
           <label
-            key={item.categoryID}
+            key={category.categoryID}
             className="cursor-pointer flex items-center relative mr-[2px]"
             style={{
               overflow: "hidden",
@@ -29,13 +36,13 @@ const CategoryFilter = ({
             <input
               type="radio"
               name="faq-filter"
-              value={item.categoryID}
+              value={category.categoryID}
               checked={isActive}
-              onChange={() => onChange(item.categoryID)}
+              onChange={() => onChange(category.categoryID)}
               className="absolute left-[-100%]"
             />
             <span
-              key={item.categoryID}
+              key={category.categoryID}
               className={`
                 transition-all
                 flex items-center justify-center font-semibold tracking-[-0.4px]
@@ -48,7 +55,7 @@ const CategoryFilter = ({
                 }
               `}
             >
-              {item.name}
+              {category.name}
             </span>
           </label>
         );

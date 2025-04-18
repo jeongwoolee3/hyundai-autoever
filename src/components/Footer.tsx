@@ -1,15 +1,6 @@
-import React from "react";
-
 const Footer = () => {
   return (
-    <footer
-      className="
-      relative 
-      bg-[var(--midnight-900)] 
-      text-[var(--gray-400)] 
-      px-[var(--side-padding)]
-    "
-    >
+    <footer className="relative bg-[var(--midnight-900)] text-[var(--gray-400)] px-[var(--side-padding)]">
       <div
         className="
        flex flex-col justify-between

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FAQItem, Tab } from "../mocks/types";
-import Accordion from "./Accordion";
+import { FAQItem, Tab } from "../../mocks/types";
+import FAQAccordion from "./FAQAccordion";
 
 const FAQList = ({ faqList, tab }: { faqList: FAQItem[]; tab: Tab }) => {
   const [openId, setOpenId] = useState<number | null>(null);
@@ -12,7 +12,7 @@ const FAQList = ({ faqList, tab }: { faqList: FAQItem[]; tab: Tab }) => {
   return (
     <ul className="border-t-[2px] border-t-[var(--midnight-900)]">
       {faqList.map((faq) => (
-        <Accordion
+        <FAQAccordion
           key={faq.id}
           tab={tab}
           item={faq}

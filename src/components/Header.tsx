@@ -5,6 +5,7 @@ interface HeaderProps {
   isNavOpen: boolean;
   setIsNavOpen: (open: boolean) => void;
 }
+
 const CloseIcon = () => (
   <svg
     className="w-6 h-6 text-black"
@@ -16,6 +17,7 @@ const CloseIcon = () => (
     <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
+
 const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
   const [isPinned, setIsPinned] = useState(false);
 

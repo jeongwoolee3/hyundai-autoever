@@ -1,15 +1,14 @@
-import { useState } from "react";
-import { FAQItem, Tab } from "../mocks/types";
+import { FAQItem, Tab } from "../../mocks/types";
 import parse from "html-react-parser";
 
-interface AccordionProps {
+interface FAQAccordionProps {
   item: FAQItem;
   tab: Tab;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-const Accordion = ({ item, tab, isOpen, onToggle }: AccordionProps) => {
+const FAQAccordion = ({ item, tab, isOpen, onToggle }: FAQAccordionProps) => {
   const { id, categoryName, subCategoryName, question, answer } = item;
 
   return (
@@ -87,4 +86,4 @@ const Accordion = ({ item, tab, isOpen, onToggle }: AccordionProps) => {
   );
 };
 
-export default Accordion;
+export default FAQAccordion;

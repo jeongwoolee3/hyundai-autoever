@@ -1,41 +1,23 @@
 import { useEffect, useState } from "react";
-import useCategoryData from "../hooks/useCategoryData"; // tab 기반 fetch 훅
-import useFAQData from "../hooks/useFaqData";
-import { FAQItem, Tab as TabType } from "../mocks/types";
-import FAQList from "./\bFAQList";
-import AppInfo from "./AppInfo";
-import CategoryFilter from "./CategoryFilter";
-import InquiryInfo from "./InquiryInfo";
-import ProcessInfo from "./ProcessInfo";
+import useFAQData from "../../hooks/useFAQData";
+import { FAQItem, Tab } from "../../mocks/types";
 import Search from "./Search";
-import Tab from "./Tab";
+import Tabs from "./Tabs";
+import CategoryFilter from "./CategoryFilter";
+import FAQList from "./FAQList";
 
-const tabs = ["서비스 도입", "서비스 이용"];
-const TAB_MAP: Record<string, TabType> = {
-  "서비스 도입": "CONSULT",
-  "서비스 이용": "USAGE",
-};
-
-const CategoryContainer = () => {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+const FAQ = () => {
+  const [selectedTab, setSelectedTab] = useState<Tab>("CONSULT");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [offset, setOffset] = useState(0);
   const [question, setQuestion] = useState("");
   const [keyword, setKeyword] = useState("");
   const [faqList, setFaqList] = useState<FAQItem[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(false);
   const limit = 10;
 
-  const { data: categories = [], isLoading } = useCategoryData(
-    TAB_MAP[activeTab]
-  );
-
-  const {
-    data,
-    isLoading: isFAQLoading,
-    error,
-  } = useFAQData({
-    tab: TAB_MAP[activeTab],
+  const { data } = useFAQData({
+    tab: selectedTab,
     limit,
     offset,
     faqCategoryID: selectedCategory,
@@ -56,17 +38,21 @@ const CategoryContainer = () => {
 
   useEffect(() => {
     setOffset(0);
-  }, [activeTab, selectedCategory]);
+  }, [selectedTab, selectedCategory]);
 
   useEffect(() => {
     setSelectedCategory("");
     setQuestion("");
     setKeyword("");
-  }, [activeTab]);
+  }, [selectedTab]);
 
   return (
-    <>
-      <Tab activeTab={activeTab} onChange={setActiveTab} />
+    <div>
+      <Tabs
+        tabs={["CONSULT", "USAGE"]}
+        selectedTab={selectedTab}
+        onChange={setSelectedTab}
+      />
       <Search
         value={keyword}
         onChange={setKeyword}
@@ -84,14 +70,14 @@ const CategoryContainer = () => {
         </div>
       )}
       <CategoryFilter
-        categories={categories}
-        selected={selectedCategory}
+        selectedTab={selectedTab}
+        selectedCategory={selectedCategory}
         onChange={(value) => {
           setSelectedCategory(value);
           setOffset(0);
         }}
       />
-      <FAQList faqList={faqList ?? []} tab={TAB_MAP[activeTab]} />
+      <FAQList faqList={faqList ?? []} tab={selectedTab} />
       {hasMore && (
         <button
           onClick={() => setOffset((prev) => prev + limit)}
@@ -101,28 +87,7 @@ const CategoryContainer = () => {
           + 더보기
         </button>
       )}
-      <h2
-        className="my-[var(--heading-2-margin)] leading-[var(--line-height-sm)] font-bold"
-        style={{
-          fontSize: "var(--heading-2)",
-          margin: "var(--heading-2-margin)",
-        }}
-      >
-        서비스 문의
-      </h2>
-      <InquiryInfo />
-      <h2
-        className="my-[var(--heading-2-margin)] leading-[var(--line-height-sm)] font-bold"
-        style={{
-          fontSize: "var(--heading-2)",
-          margin: "var(--heading-2-margin)",
-        }}
-      >
-        이용 프로세스 안내
-      </h2>
-      <ProcessInfo />
-      <AppInfo />
-    </>
+    </div>
   );
 };
-export default CategoryContainer;
+export default FAQ;

@@ -16,4 +16,5 @@ const useCategoryData = (tab: string) => {
     placeholderData: undefined,
   });
 };
+
 export default useCategoryData;
