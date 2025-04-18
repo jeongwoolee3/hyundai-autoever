@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { FAQItem } from "../mocks/types";
+import { FAQItem, Tab } from "../mocks/types";
 import parse from "html-react-parser";
 
 interface AccordionProps {
   item: FAQItem;
+  tab: Tab;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-const Accordion = ({ item, isOpen, onToggle }: AccordionProps) => {
-  const { id, subCategoryName: category, question, answer } = item;
+const Accordion = ({ item, tab, isOpen, onToggle }: AccordionProps) => {
+  const { id, categoryName, subCategoryName, question, answer } = item;
 
   return (
     <div className="w-full">
@@ -24,15 +25,21 @@ const Accordion = ({ item, isOpen, onToggle }: AccordionProps) => {
           onClick={onToggle}
           type="button"
           className="
+                cursor-pointer
                 w-full flex items-center relative 
-                text-[var(--faq-list-a-size)] 
                 leading-[var(--line-height-sm)]
                 py-[var(--faq-list-a-padding-v)] 
                 pr-[calc(var(--px-xlg)_+_1.6em)]
             "
+          style={{ fontSize: "var(--faq-list-a-size)" }}
         >
-          <em className="text-[var(--gray-400)] not-italic px-[var(--faq-list-a-padding-h)] mr-[8px] w-[8em] f">
-            {category}
+          {tab === "USAGE" && (
+            <em className="text-[var(--gray-400)] not-italic px-[var(--faq-list-a-padding-h)] w-[10em] ">
+              {categoryName}
+            </em>
+          )}
+          <em className="text-[var(--gray-400)] not-italic px-[var(--faq-list-a-padding-h)] w-[8em] ">
+            {subCategoryName}
           </em>
           <strong
             className="  flex-1 

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FAQItem } from "../mocks/types";
+import { FAQItem, Tab } from "../mocks/types";
 import Accordion from "./Accordion";
 
-const FAQList = ({ faqList }: { faqList: FAQItem[] }) => {
+const FAQList = ({ faqList, tab }: { faqList: FAQItem[]; tab: Tab }) => {
   const [openId, setOpenId] = useState<number | null>(null);
 
   const handleToggle = (id: number) => {
@@ -14,6 +14,7 @@ const FAQList = ({ faqList }: { faqList: FAQItem[] }) => {
       {faqList.map((faq) => (
         <Accordion
           key={faq.id}
+          tab={tab}
           item={faq}
           isOpen={openId === faq.id}
           onToggle={() => handleToggle(faq.id)}
