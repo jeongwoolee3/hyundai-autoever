@@ -1,14 +1,15 @@
 import AppInfo from "./AppInfo";
 import FAQ from "./faq/FAQ";
+import FloatingButton from "./FloatingButton";
 import InquiryInfo from "./InquiryInfo";
 import ProcessInfo from "./ProcessInfo";
 
 const Main = () => {
   return (
     <div
+      className="relative flex flex-col"
       style={{
         minHeight: "calc(100vh - var(--header-height) - var(--footer-height))",
-        overflow: "hidden",
         padding: "0 var(--side-padding) var(--bottom-padding)",
       }}
     >
@@ -30,6 +31,7 @@ const Main = () => {
         <ProcessInfo />
         <AppInfo />
       </div>
+      <FloatingButton />
     </div>
   );
 };
