@@ -10,7 +10,7 @@ const ProcessInfo = () => {
         >
           {index !== 0 && (
             <img
-              src="/ic_step_arrow.svg"
+              src="/icons/ic_step_arrow.svg"
               alt=""
               className="absolute left-[-10px] top-1/2 translate-y-[-30%] w-[24px] h-[24px] "
             />

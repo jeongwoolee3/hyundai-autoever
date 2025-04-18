@@ -20,7 +20,7 @@ const InquiryInfo = () => {
         style={{ fontSize: "var(--btn-xxlg-size" }}
       >
         <img
-          src="/ic_download.svg"
+          src="/icons/ic_download.svg"
           alt="다운로드"
           className="w-[var(--ic-lg)] h-[var(--ic-lg)] mr-2 shrink-0"
         />
@@ -45,7 +45,7 @@ const InquiryInfo = () => {
         style={{ fontSize: "var(--btn-xxlg-size" }}
       >
         <img
-          src="/ic_write.svg"
+          src="/icons/ic_write.svg"
           alt="등록"
           className="w-[var(--ic-lg)] h-[var(--ic-lg)] mr-2 shrink-0"
         />
@@ -70,7 +70,7 @@ const InquiryInfo = () => {
         style={{ fontSize: "var(--btn-xxlg-size" }}
       >
         <img
-          src="/ic_talk.svg"
+          src="/icons/ic_talk.svg"
           alt="문의"
           className="w-[var(--ic-lg)] h-[var(--ic-lg)] mr-2 shrink-0"
         />

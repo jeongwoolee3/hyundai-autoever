@@ -39,7 +39,7 @@ const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
     >
       <img
         className="w-[110px] md:w-[140px] cursor-pointer"
-        src="/logo.svg"
+        src="/icons/logo.svg"
         alt="Kia Biz"
       />
       {isNavOpen ? (

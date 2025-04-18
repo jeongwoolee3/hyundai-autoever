@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
         <p className="text-[14px]">
           <img
-            src={"/logo_kia.svg"}
+            src="/icons/logo_kia.svg"
             style={{ marginBottom: "2px", height: "56px" }}
           />
           © 2023 KIA CORP. All Rights Reserved.
