@@ -37,6 +37,7 @@ const FAQ = () => {
         onSearch={(question) => {
           setQuestion(question);
         }}
+        onClear={() => setKeyword("")}
       />
       {question && (
         <div className="flex justify-between my-[var(--px-md)]">

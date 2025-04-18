@@ -4,9 +4,10 @@ interface SearchProps {
   value: string;
   onChange: (val: string) => void;
   onSearch: (val: string) => void;
+  onClear: () => void;
 }
 
-const Search = ({ value, onChange, onSearch }: SearchProps) => {
+const Search = ({ value, onChange, onSearch, onClear }: SearchProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSearch(value.trim()); // 검색어 부모로 전달
@@ -47,7 +48,7 @@ const Search = ({ value, onChange, onSearch }: SearchProps) => {
           {value && (
             <button
               type="button"
-              onClick={() => onSearch("")}
+              onClick={onClear}
               className="absolute right-[48px] top-1/2 -translate-y-1/2 text-[#9BA1A5] cursor-pointer"
               aria-label="검색어 지우기"
             >
