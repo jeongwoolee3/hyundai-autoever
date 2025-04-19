@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FAQItem, Tab } from "../../mocks/types";
 import FAQAccordion from "./FAQAccordion";
 
-const FAQList = ({ faqList, tab }: { faqList: FAQItem[]; tab: Tab }) => {
+interface FAQListProps {
+  faqList: FAQItem[];
+  tab: Tab;
+  selectedCategory: string;
+}
+
+const FAQList = ({ faqList, tab, selectedCategory }: FAQListProps) => {
   const [openId, setOpenId] = useState<number | null>(null);
+
+  useEffect(() => {
+    setOpenId(null);
+  }, [selectedCategory]);
 
   const handleToggle = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));

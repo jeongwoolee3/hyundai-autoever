@@ -73,7 +73,11 @@ const FAQ = () => {
           setSelectedCategory(value);
         }}
       />
-      <FAQList faqList={faqList ?? []} tab={selectedTab} />
+      <FAQList
+        faqList={faqList ?? []}
+        tab={selectedTab}
+        selectedCategory={selectedCategory}
+      />
       {hasMore && (
         <button
           onClick={() => fetchNextPage()}
