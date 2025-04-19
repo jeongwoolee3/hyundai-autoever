@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { throttle } from "lodash";
+import NavPanel from "./NavPanel";
 interface HeaderProps {
   isNavOpen: boolean;
   setIsNavOpen: (open: boolean) => void;
@@ -73,6 +74,7 @@ const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
           </button>
         ))}
       </div>
+      {isNavOpen && <NavPanel isOpen={isNavOpen} />}
     </header>
   );
 };
