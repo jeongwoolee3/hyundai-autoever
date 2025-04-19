@@ -36,12 +36,7 @@ const FAQAccordion = ({ item, tab, isOpen, onToggle }: FAQAccordionProps) => {
           onClick={onToggle}
           type="button"
           className="
-                cursor-pointer
-                w-full flex items-center relative 
-                leading-[var(--line-height-sm)]
-                py-[var(--faq-list-a-padding-v)] 
-                pr-[calc(var(--px-xlg)_+_1.6em)]
-            "
+                cursor-pointer w-full flex items-center relative leading-[var(--line-height-sm)] py-[var(--faq-list-a-padding-v)] pr-[calc(var(--px-xlg)_+_1.6em)]"
           style={{ fontSize: "var(--faq-list-a-size)" }}
         >
           {tab === "USAGE" && (
@@ -49,7 +44,7 @@ const FAQAccordion = ({ item, tab, isOpen, onToggle }: FAQAccordionProps) => {
               {categoryName}
             </em>
           )}
-          <em className="text-[var(--gray-400)] not-italic px-[var(--faq-list-a-padding-h)] w-[8em] ">
+          <em className="text-[var(--gray-400)] not-italic px-[var(--faq-list-a-padding-h)] w-[10em] ">
             {subCategoryName}
           </em>
           <strong
