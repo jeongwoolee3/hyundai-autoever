@@ -14,7 +14,7 @@ const FAQ = () => {
   const [keyword, setKeyword] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const { faqList, hasMore, fetchNextPage } = useFAQData({
+  const { faqList, hasMore, fetchNextPage, totalCount } = useFAQData({
     tab: selectedTab,
     faqCategoryID: selectedCategory,
     question,
@@ -55,7 +55,7 @@ const FAQ = () => {
       {question && (
         <div className="flex justify-between my-[var(--px-md)]">
           <h2 style={{ fontSize: "var(--heading-info)", fontWeight: 700 }}>
-            검색 결과 총 {faqList?.length ?? 0}건
+            검색 결과 총 {totalCount}건
           </h2>
           <button
             className="cursor-pointer flex items-center space-x-1"

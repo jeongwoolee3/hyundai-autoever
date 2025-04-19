@@ -36,13 +36,13 @@ const useFAQData = ({ tab, faqCategoryID, question }: UseFAQDataParams) => {
       }
       return { offset: lastPage.pageInfo.nextOffset };
     },
-    select: (data) => data.pages.flatMap((page) => page.items),
   });
 
   return {
-    faqList: data || null,
+    faqList: data?.pages.flatMap((page) => page.items) || null,
     hasMore: hasNextPage,
     fetchNextPage,
+    totalCount: data?.pages[0].pageInfo.totalRecord || 0,
   };
 };
 export default useFAQData;
