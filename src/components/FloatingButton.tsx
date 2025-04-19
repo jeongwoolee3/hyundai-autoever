@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { throttle } from "lodash";
 
 const FloatingButton = () => {
   const [showButton, setShowButton] = useState(true);
@@ -15,13 +16,13 @@ const FloatingButton = () => {
       setShowButton(false);
     }
 
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       if (window.scrollY === 0) {
         setShowButton(false);
       } else {
         setShowButton(true);
       }
-    };
+    }, 100);
 
     window.addEventListener("scroll", handleScroll);
 

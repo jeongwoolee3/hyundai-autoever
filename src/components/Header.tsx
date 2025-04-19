@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-
+import { throttle } from "lodash";
 interface HeaderProps {
   isNavOpen: boolean;
   setIsNavOpen: (open: boolean) => void;
@@ -22,9 +22,9 @@ const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
   const [isPinned, setIsPinned] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       setIsPinned(window.scrollY > 0);
-    };
+    }, 100);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
