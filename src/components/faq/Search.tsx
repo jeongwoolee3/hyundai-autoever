@@ -42,39 +42,28 @@ const Search = ({ value, onChange, onSearch, onClear }: SearchProps) => {
               paddingRight:
                 "calc(var(--ic-sm) + var(--clear-space) + var(--btn-xlg2) - 2px)",
             }}
-          />
+          ></input>
 
-          {value && (
+          <div className="absolute right-[12px] top-1/2 -translate-y-1/2 flex items-center space-x-2">
+            {value && (
+              <button
+                type="button"
+                onClick={onClear}
+                className="text-[#9BA1A5] cursor-pointer"
+                aria-label="검색어 지우기"
+              >
+                <img src="/icons/ic_clear.svg" />
+              </button>
+            )}
+
             <button
-              type="button"
-              onClick={onClear}
-              className="absolute right-[48px] top-1/2 -translate-y-1/2 text-[#9BA1A5] cursor-pointer"
-              aria-label="검색어 지우기"
+              type="submit"
+              aria-label="검색하기"
+              className="cursor-pointer"
             >
-              ✕
+              <img src="/icons/ic_search.svg" width={32} />
             </button>
-          )}
-
-          <button
-            type="submit"
-            aria-label="검색하기"
-            className="absolute right-[12px] top-1/2 -translate-y-1/2 cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-[24px] h-[24px] text-[#05141F]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"
-              />
-            </svg>
-          </button>
+          </div>
         </div>
       </div>
     </form>

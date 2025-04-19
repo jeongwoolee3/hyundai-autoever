@@ -57,8 +57,12 @@ const FAQ = () => {
           <h2 style={{ fontSize: "var(--heading-info)", fontWeight: 700 }}>
             검색 결과 총 {faqList?.length ?? 0}건
           </h2>
-          <button className="cursor-pointer" onClick={handleSearchReset}>
-            검색 초기화
+          <button
+            className="cursor-pointer flex items-center space-x-1"
+            onClick={handleSearchReset}
+          >
+            <img src="/icons/ic_reset.svg" width={24} />
+            <span className="text-[16px]">검색 초기화</span>
           </button>
         </div>
       )}
