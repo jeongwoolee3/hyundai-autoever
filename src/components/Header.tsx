@@ -33,7 +33,7 @@ const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
   return (
     <header
       className={clsx(
-        "sticky top-0 left-0 z-50 w-full h-[56px] md:h-[80px] px-[24px] sm:px-[48px] flex justify-between items-center bg-white transition-shadow duration-300",
+        "sticky top-0 left-0 z-10 w-full h-[56px] md:h-[80px] px-[24px] sm:px-[48px] flex justify-between items-center bg-white transition-shadow duration-300",
         {
           "shadow-[0_4px_32px_rgba(0,0,0,0.08)]": isPinned,
         }

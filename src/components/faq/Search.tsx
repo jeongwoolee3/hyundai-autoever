@@ -20,6 +20,7 @@ const Search = ({ value, onChange, onSearch, onClear }: SearchProps) => {
         style={{
           backgroundColor: "var(--gray-10)",
           marginBottom: "var(--px-md)",
+
           padding: "var(--px-md)",
         }}
       >

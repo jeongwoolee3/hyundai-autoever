@@ -5,12 +5,14 @@ import Search from "./Search";
 import Tabs from "./Tabs";
 import CategoryFilter from "./CategoryFilter";
 import FAQList from "./FAQList";
+import Dialog from "../Dialog";
 
 const FAQ = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>("CONSULT");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [question, setQuestion] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const { faqList, hasMore, fetchNextPage } = useFAQData({
     tab: selectedTab,
@@ -24,6 +26,14 @@ const FAQ = () => {
     setKeyword("");
   }, [selectedTab]);
 
+  const handleSearch = (question: string) => {
+    if (question.length < 2) {
+      setIsDialogOpen(true);
+      return;
+    }
+    setQuestion(question);
+  };
+
   return (
     <div>
       <Tabs
@@ -34,9 +44,7 @@ const FAQ = () => {
       <Search
         value={keyword}
         onChange={setKeyword}
-        onSearch={(question) => {
-          setQuestion(question);
-        }}
+        onSearch={handleSearch}
         onClear={() => setKeyword("")}
       />
       {question && (
@@ -63,6 +71,12 @@ const FAQ = () => {
         >
           + 더보기
         </button>
+      )}
+      {isDialogOpen && (
+        <Dialog
+          onClose={() => setIsDialogOpen(false)}
+          message="검색어는 2글자 이상 입력해주세요."
+        />
       )}
     </div>
   );
