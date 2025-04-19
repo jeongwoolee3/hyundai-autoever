@@ -27,7 +27,7 @@ const FAQ = () => {
   }, [selectedTab]);
 
   const handleSearch = (question: string) => {
-    if (question.length < 2) {
+    if (question.length === 1) {
       setIsDialogOpen(true);
       return;
     }
