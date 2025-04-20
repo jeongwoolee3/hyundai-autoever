@@ -34,46 +34,54 @@ const Header = ({ isNavOpen, setIsNavOpen }: HeaderProps) => {
   return (
     <header
       className={clsx(
-        "sticky top-0 left-0 z-10 w-full h-[56px] md:h-[80px] px-[24px] sm:px-[48px] flex justify-between items-center bg-white transition-shadow duration-300",
+        "sticky top-0 z-10  px-[var(--side-padding)]  bg-white transition-shadow duration-300",
         {
           "shadow-[0_4px_32px_rgba(0,0,0,0.08)]": isPinned,
         }
       )}
     >
-      <img
-        className="w-[110px] md:w-[140px] cursor-pointer"
-        src="/icons/logo.svg"
-        alt="Kia Biz"
-      />
-      {isNavOpen ? (
-        <button
-          className="w-[20px] cursor-pointer md:hidden"
-          onClick={() => {
-            setIsNavOpen(!isNavOpen);
-          }}
-        >
-          <CloseIcon />
-        </button>
-      ) : (
-        <button
-          className="flex flex-col space-y-[4px] w-[20px] cursor-pointer md:hidden"
-          onClick={() => {
-            setIsNavOpen(!isNavOpen);
-          }}
-        >
-          <div className="bg-black h-[2px]" />
-          <div className="bg-black h-[2px]" />
-          <div className="bg-black h-[2px]" />
-        </button>
-      )}
-
-      <div className="hidden md:block space-x-[40px]">
-        {["서비스 소개", "자주 묻는 질문", "새소식", "상담문의"].map((menu) => (
-          <button key={menu} className="cursor-pointer text-[18px] font-bold">
-            {menu}
+      <div className=" mx-auto max-w-[var(--max-width)] h-[var(--header-height)] items-center flex-wrap flex">
+        <img
+          className="w-[110px]  md:w-[140px] md:h-[100%] cursor-pointer"
+          src="/icons/logo.svg"
+          alt="Kia Biz"
+        />
+        {isNavOpen ? (
+          <button
+            className="w-[20px] cursor-pointer md:hidden"
+            onClick={() => {
+              setIsNavOpen(!isNavOpen);
+            }}
+          >
+            <CloseIcon />
           </button>
-        ))}
+        ) : (
+          <button
+            className="flex flex-col space-y-[4px] w-[20px] cursor-pointer md:hidden"
+            onClick={() => {
+              setIsNavOpen(!isNavOpen);
+            }}
+          >
+            <div className="bg-black h-[2px]" />
+            <div className="bg-black h-[2px]" />
+            <div className="bg-black h-[2px]" />
+          </button>
+        )}
+        <nav className="md:flex-[1_1_0%] md:-mr-[20px]">
+          <ul className="md:flex md:justify-end">
+            {["서비스 소개", "자주 묻는 질문", "새소식", "상담문의"].map(
+              (menu) => (
+                <li key={menu} className="cursor-pointer md:mx-[16px]">
+                  <a className="md:block md:text-[18px] md:font-semibold md:leading-[var(--header-height)] md:px-[4px] md:relative">
+                    {menu}
+                  </a>
+                </li>
+              )
+            )}
+          </ul>
+        </nav>
       </div>
+
       {isNavOpen && <NavPanel isOpen={isNavOpen} />}
     </header>
   );
