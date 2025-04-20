@@ -7,9 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { worker } from "./mocks/browser";
 
 async function bootstrap() {
-  if (import.meta.env.DEV) {
-    await worker.start();
-  }
+  await worker.start();
+
   const queryClient = new QueryClient();
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
