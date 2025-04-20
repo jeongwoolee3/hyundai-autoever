@@ -40,7 +40,7 @@ const FAQAccordion = ({ item, tab, isOpen, onToggle }: FAQAccordionProps) => {
           <div className="flex">
             {tab === "USAGE" && (
               <div className="flex">
-                <em className="text-[var(--gray-400)] text-[calc(1em-4px)] md:text not-italic md:px-[var(--faq-list-a-padding-h)] md:w-[184px] md:inline-block md:text-[18px]">
+                <em className="text-[var(--gray-500)] font-normal md:text not-italic md:px-[var(--faq-list-a-padding-h)] md:w-[208px] md:inline-block  ">
                   {categoryName}
                 </em>
                 <img
@@ -50,7 +50,7 @@ const FAQAccordion = ({ item, tab, isOpen, onToggle }: FAQAccordionProps) => {
                 />
               </div>
             )}
-            <em className="text-[var(--gray-400)] text-[calc(1em-4px)] not-italic md:px-[var(--faq-list-a-padding-h)] md:w-[184px] md:inline-block md:text-[18px]">
+            <em className="text-[var(--gray-500)] font-normal not-italic md:px-[var(--faq-list-a-padding-h)] md:w-[208px] md:inline-block">
               {subCategoryName}
             </em>
           </div>
