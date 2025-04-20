@@ -13,7 +13,7 @@ const Main = () => {
         padding: "0 var(--side-padding) var(--bottom-padding)",
       }}
     >
-      <div className="flex flex-col max-w-[1240px] mx-auto justify-center">
+      <div className="flex flex-col max-w-[1240px] justify-center">
         <div
           className="flex flex-col h-[var(--h1-height)] justify-center leading-[var(--line-height-sm)]"
           style={{ fontSize: "var(--h1-fsize)" }}
