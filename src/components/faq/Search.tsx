@@ -15,13 +15,7 @@ const Search = ({ value, onChange, onSearch, onClear }: SearchProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div
-        className="flex justify-center lg:bg-[var(--gray-10)] md:bg-[var(--gray-10)] sm:bg-white"
-        style={{
-          marginBottom: "var(--px-md)",
-          padding: "var(--px-md)",
-        }}
-      >
+      <div className="flex justify-center lg:bg-[var(--gray-10)] bg-white sm:bg-[var(--gray-10)] px-0 sm:p-[var(--px-md)] mb-[var(--px-md)]">
         <div
           className="bg-white border border-[var(--gray-200)] relative"
           style={{
