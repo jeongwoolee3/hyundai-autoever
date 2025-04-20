@@ -1,17 +1,17 @@
 const PageInfo = () => {
   return (
-    <div
-      className="flex flex-col h-[var(--h1-height)] justify-center leading-[var(--line-height-sm)]"
+    <h1
+      className="flex flex-col justify-center w-full font-bold text-[#05141F] h-[var(--h1-height)] leading-[var(--line-height-sm)]"
       style={{ fontSize: "var(--h1-fsize)" }}
     >
-      <p className="font-bold text-[#05141F]">자주 묻는 질문</p>
-      <p
-        className="font-normal text-[#05141F] mt-[8px]"
+      자주 묻는 질문
+      <em
+        className="font-normal not-italic mt-[.4em] leading-[var(--line-height-md)]"
         style={{ fontSize: "var(--h1-fsize-sm)" }}
       >
         궁금하신 내용을 빠르게 찾아보세요.
-      </p>
-    </div>
+      </em>
+    </h1>
   );
 };
 
