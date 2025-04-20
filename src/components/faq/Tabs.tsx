@@ -10,32 +10,35 @@ interface TabProps {
 
 const Tabs = ({ tabs, selectedTab, onChange }: TabProps) => {
   return (
-    <div className="flex w-full border border-[var(--midnight-100)] mb-[var(--px-lg)]">
+    <ul className="flex w-full border border-[var(--midnight-100)] mb-[var(--px-lg)]">
       {tabs.map((tab) => {
         const isSelected = selectedTab === tab;
         return (
-          <button
+          <li
             key={tab}
             onClick={() => onChange(tab)}
             className={clsx(
-              "flex-1 text-center font-medium transition-all cursor-pointer",
-              isSelected ? "text-white font-semibold" : "text-[#05141F]"
+              "flex-1 text-center font-medium transition-all cursor-pointer relative",
+              isSelected
+                ? "text-white font-semibold"
+                : "text-[var(--midnight-900)]"
             )}
             style={{
               backgroundColor: isSelected ? "var(--midnight-900)" : "#fff",
               borderColor: isSelected
                 ? "var(--midnight-900)"
                 : "var(--midnight-100)",
-              borderWidth: "1px",
-              borderStyle: "solid",
               minHeight: "var(--btn-xlg2)",
+              fontSize: "var(--tab-fsize)",
             }}
           >
-            {TAB_MAP[tab]}
-          </button>
+            <span className="flex items-center justify-center h-full p-[8px] text-center leading-[1.1] text-inherit">
+              {TAB_MAP[tab]}
+            </span>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 export default Tabs;
