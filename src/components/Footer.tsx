@@ -1,32 +1,24 @@
 const Footer = () => {
   return (
     <footer className="relative bg-[var(--midnight-900)] text-[var(--gray-400)] px-[var(--side-padding)]">
-      <div
-        className="
-       flex flex-col justify-between
-      pt-[18px] pb-[29px]
-      sm:pt-[34px] sm:pb-[44px]
-      md:flex-row-reverse md:items-center
-      max-w-[var(--max-width)] mx-auto
-      "
-      >
+      <div className="flex flex-col justify-between pt-[18px] pb-[29px] sm:pt-[34px] sm:pb-[44px] md:flex-row-reverse md:items-center max-w-[var(--max-width)] mx-auto">
         <div>
-          <span className="flex lg:justify-end lg:mb-[10px]">
+          <span className="flex lg:justify-end lg:mb-[10px] gap-[12px] md:gap-[24px]">
             <button
-              className="cursor-pointer text-white  lg:ml-[24px] lg:leading-[var(--line-height)] hover:underline"
+              className="cursor-pointer text-white lg:leading-[var(--line-height)] hover:underline"
               style={{ fontSize: "var(--font-md)" }}
             >
               <b>개인정보 처리방침</b>
             </button>
             <button
-              className="cursor-pointer text-white  lg:ml-[24px] lg:leading-[var(--line-height)] "
+              className="cursor-pointer text-white lg:leading-[var(--line-height)] "
               style={{ fontSize: "var(--font-lg)" }}
             >
               이용약관
             </button>
           </span>
           <address
-            className="lg:text-right text-[14px] not-italic"
+            className="lg:text-right text-[12px] lg:text-[14px] not-italic"
             style={{ fontStyle: "normal" }}
           >
             <span className="inline-flex lg:ml-[12px]">
@@ -53,7 +45,7 @@ const Footer = () => {
             </span>
           </address>
         </div>
-        <p className="text-[14px]">
+        <p className=" text-[12px] lg:text-[14px]">
           <img
             src="/icons/logo_kia.svg"
             style={{ marginBottom: "2px", height: "56px" }}
