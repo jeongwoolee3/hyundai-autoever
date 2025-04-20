@@ -7,7 +7,7 @@ import ProcessInfo from "./ProcessInfo";
 const Main = () => {
   return (
     <div
-      className="relative flex flex-col"
+      className="relative flex flex-col items-center"
       style={{
         minHeight: "calc(100vh - var(--header-height) - var(--footer-height))",
         padding: "0 var(--side-padding) var(--bottom-padding)",
